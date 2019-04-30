@@ -11,67 +11,81 @@
     </div>
 </div>
 
-<a aria-controls="collapseExample" aria-expanded="false" class="btn btn-primary" data-toggle="collapse"
-   href="#collapseExample" role="button">
-    Add new Message
-</a>
-<div class="collapse <#if message??>show</#if>" id="collapseExample">
-    <div class="form-group mt-3">
-        <form enctype="multipart/form-data" method="post">
-            <div class="form-group">
-                <input class="form-control ${(textError??)?string('is-invalid', '')}" name="text"
-                       placeholder="Введите сообщение" type="text" value="<#if message??>${message.text}</#if>"/>
-                <#if textError??>
-                <div class="invalid-feedback">
-                    ${textError}
-                </div>
-            </
-            #if>
-    </div>
-    <div class="form-group">
-        <input class="form-control" name="tag"
-               placeholder="Тэг" type="text" value="<#if message??>${message.tag}</#if>">
-        <#if tagError??>
-        <div class="invalid-feedback">
-            ${tagError}
-        </div>
-    </
-    #if>
-</div>
-<div class="form-group">
-    <div class="custom-file">
-        <input id="customFile" name="file" type="file">
-        <label class="custom-file-label" for="customFile">Choose file</label>
-    </div>
-</div>
-<input name="_csrf" type="hidden" value="${_csrf.token}"/>
-<div class="form-group">
-    <button class="btn btn-primary" type="submit">Добавить</button>
-</div>
-</form>
-</div>
-</div>
-
+<#include "parts/messageEdit.ftl" />
 
 <div class="card-columns">
+
     <#list messages as message >
-    <div class="card my-3">
+    <div class="card">
+        <div class="flip-card-container" style="--hue: 220">
+            <div class="flip-card">
 
-        <#if message.filename??>
-        <img class="card-img-top" src="/img/${message.filename}">
-    </
-    #if>
-    <div class="m-2">
-        <span>${message.text}</span>
-        <i>${message.tag}</i>
-    </div>
-    <div class="card-footer text-muted">
-        ${message.authorName}
-    </div>
+                <div class="card-front">
+                    <figure>
+                        <div class="img-bg"></div>
+                        <#if message.filename??>
+                        <img alt="BladeRunner"
+                             src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjLul37v1NcF8XpdSEh4RHsmGocA.jpg&f=1&fit=crop&w=500&q=60}">
+                    </
+                    #if>
+                    <figcaption>Blade Runner 2047</figcaption>
+                    </figure>
 
-</div>
+                    <ul>
+                        <li>${message.text}</li>
+                        <li> ${message.authorName}</li>
+                        <li>Detail 3</li>
+                        <li>Detail 4</li>
+                        <li>Detail 5</li>
+                    </ul>
+                </div>
+
+                <div class="card-back">
+                    <figure>
+                        <div class="img-bg"></div>
+                        <img alt="Brohm Lake"
+                             src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Fd8%2F84%2Fd6%2Fd884d6b0e2798ca4ac32c2a1f56daf56.jpg&f=1&fit=crop&w=500&q=60">
+                    </figure>
+
+                    <button>Book</button>
+
+                    <div class="design-container">
+                        <span class="design design--1"></span>
+                        <span class="design design--2"></span>
+                        <span class="design design--3"></span>
+                        <span class="design design--4"></span>
+                        <span class="design design--5"></span>
+                        <span class="design design--6"></span>
+                        <span class="design design--7"></span>
+                        <span class="design design--8"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 <#else>
 No message
+
 </#list>
 </div>
+<!-- /flip-card-container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </@c.page>
