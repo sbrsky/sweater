@@ -15,32 +15,33 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home </a>
                 </li>
+                <#if user??>
                 <li class="nav-item">
                     <a class="nav-link" href="/main">Messages </a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link" href="/user-messages/${currentUserId}">My messages </a>
+
                 </li>
+            </#if>
                 <#if isAdmin>
                 <li class="nav-item">
                     <a class="nav-link" href="/user">User list </a>
                 </li>
-            </
-            #if>
+            </#if>
             <#if user??>
             <li class="nav-item">
                 <a class="nav-link" href="/user/profile">Profile </a>
             </li>
-        </
-        #if>
+        </#if>
         <!-- My Contacts -->
         <li class="nav-item">
             <a class="nav-link" href="/my_contacts"> Contacts </a>
         </li>
         <!-- My Contacts End -->
         </ul>
-        <div class="navbar-text mr-3">${name} <#if isAdmin><span class="badge badge-warning">admin</span></
-        #if>
+        <div class="navbar-text mr-3">${name} <#if isAdmin><span class="badge badge-warning">admin</span></#if>
     </div>
         <@l.logout />
     </div>

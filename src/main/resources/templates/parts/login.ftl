@@ -12,8 +12,7 @@
             <div class="invalid-feedback">
                 ${usernameError}
             </div>
-        </
-        #if>
+        </#if>
     </div>
     </div>
     <div class="form-group row">
@@ -26,8 +25,7 @@
             <div class="invalid-feedback">
                 ${passwordError}
             </div>
-        </
-        #if>
+        </#if>
     </div>
     </div>
     <#if isRegisterForm>
@@ -41,8 +39,7 @@
             <div class="invalid-feedback">
                 ${password2Error}
             </div>
-        </
-        #if>
+        </#if>
     </div>
     </div>
     <div class="form-group row">
@@ -56,8 +53,7 @@
             <div class="invalid-feedback">
                 ${emailError}
             </div>
-        </
-        #if>
+        </#if>
     </div>
     </div>
     <div class="col-sm-6">
@@ -66,8 +62,7 @@
         <div class="alert alert-danger" role="alert">
             ${captchaError}
         </div>
-    </
-    #if>
+    </#if>
     </div>
 </#if>
 <input name="_csrf" type="hidden" value="${_csrf.token}"/>
@@ -80,7 +75,6 @@
 <form action="/logout" method="post">
     <input name="_csrf" type="hidden" value="${_csrf.token}"/>
     <button class="btn btn-primary" type="submit"> <#if user??>Sign Out<#else> Sign In
-    </
-    #if></button>
+    </#if></button>
 </form>
 </#macro>

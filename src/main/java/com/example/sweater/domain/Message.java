@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 @Entity // This tells Hibernate to make a table out of this class
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     @NotBlank(message = "Please, fill the message")
     @Length(max = 2048, message = "Too long (more then 2KB")
