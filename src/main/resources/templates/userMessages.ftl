@@ -1,7 +1,7 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-<#if isCurrentUser>
+<#if isCurrentUser || isAdmin>
 <#include "parts/messageEdit.ftl" />
 </#if>
 
@@ -12,7 +12,7 @@
     <#list messages as message>
     <div class="card my-3">
         <#if message.filename??>
-        <img src="/img/${message.filename}" class="card-img-top">
+        <img src="${message.filename}" class="card-img-top">
     </#if>
     <div class="m-2">
         <span>${message.text}</span><br/>
@@ -24,6 +24,7 @@
         <a class="btn btn-primary" href="/user-messages/${message.author.id}?message=${message.id}">
             Edit
         </a>
+
     </#if>
 </div>
 </div>

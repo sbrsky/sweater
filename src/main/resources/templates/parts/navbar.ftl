@@ -20,6 +20,9 @@
                     <a class="nav-link" href="/main">Messages </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/film">Film Library</a>
+                </li>
+                <li class="nav-item">
 
                     <a class="nav-link" href="/user-messages/${currentUserId}">My messages </a>
 
@@ -27,7 +30,16 @@
             </#if>
                 <#if isAdmin>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user">User list </a>
+                    <a class="nav-link" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">admin panel </a>
+                    <div class="btn-group">
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/user">User list</a>
+                            <a class="dropdown-item" href="/admin_messages">All messages</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </div>
                 </li>
             </#if>
             <#if user??>

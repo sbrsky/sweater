@@ -136,6 +136,7 @@ public class MainController {
         model.addAttribute("messages", messages);
         model.addAttribute("message", message);
         model.addAttribute("isCurrentUser", currentUser.equals(user));
+        model.addAttribute("isAdmin", currentUser.isAdmin());
 
         return "userMessages";
     }
@@ -146,9 +147,11 @@ public class MainController {
             @RequestParam("id") Message message,
             @RequestParam("text") String text,
             @RequestParam("tag") String tag,
-            @RequestParam("file") MultipartFile file
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("filename") String filename
     ) throws IOException {
-        if (message.getAuthor().equals(currentUser)) {
+
+        if (message.getAuthor().equals(currentUser) ) {
             if (!StringUtils.isEmpty(text)) {
                 message.setText(text);
             }
@@ -158,12 +161,31 @@ public class MainController {
             }
 
             saveFile(message, file);
-
+            if (filename != null){
+                message.setFilename(filename);
+            }
             messageRepo.save(message);
+
         }
+
 
         return "redirect:/user-messages/" + user;
     }
+
+    private void deleteMsg(Message message){
+        messageRepo.deleteById(message.getId());
+    }
+
+    @GetMapping("/user-messages/delete/{message}")
+    public String delGet(
+            @PathVariable Message message
+    ){
+
+        messageRepo.delete(message);
+        return "redirect:/main";
+    }
+
+
 
     private void saveFile(@Valid Message message, @RequestParam("file") MultipartFile file) throws IOException {
         if (file != null && !file.getOriginalFilename().isEmpty()) {

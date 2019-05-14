@@ -17,5 +17,4 @@
 <!-- /flip-card-container -->
 <#include "parts/messageList.ftl" />
 
-
 </@c.page>

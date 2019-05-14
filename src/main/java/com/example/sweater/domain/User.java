@@ -24,9 +24,13 @@ public class User implements UserDetails {
 
     private boolean active;
     @Email(message = "Email not correct")
-    @NotBlank(message = "Email cannot bet emty")
+    @NotBlank(message = "Email cannot bet empty")
     private String email;
     private String activationCode;
+
+    private String profilePicture;
+
+
 
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
@@ -143,4 +147,14 @@ public class User implements UserDetails {
     public void setMessages(Set<Message> messages) {
         this.messages = messages;
     }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+
 }

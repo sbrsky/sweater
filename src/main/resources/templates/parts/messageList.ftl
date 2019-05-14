@@ -12,9 +12,9 @@
                         <div class="img-bg"></div>
                         <#if message.filename??>
                         <img alt="BladeRunner"
-                             src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjLul37v1NcF8XpdSEh4RHsmGocA.jpg&f=1&fit=crop&w=500&q=60}">
+                             src="${message.filename}">
                     </#if>
-                    <figcaption>Blade Runner 2047</figcaption>
+                    <figcaption>${message.text}</figcaption>
                     </figure>
 
                     <ul>
