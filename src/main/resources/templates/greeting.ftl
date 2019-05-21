@@ -7,39 +7,23 @@
 
 <section class="hero" id="hero">
     <div class="sl-slider-wrapper" id="slider">
+
         <div class="sl-slider">
             <!-- slide-->
+            <#list messages as message>
             <div class="sl-slide bg-1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice1-scale="2"
                  data-slice2-rotation="-25" data-slice2-scale="2">
-                <div class="sl-slide-inner" style="background-image: url(/web/img/w_cyber.jpg);">
+                <div class="sl-slide-inner" style="background-image: url(https://source.unsplash.com/1920x1080/?${message.text},film);">
                     <div class="container">
-                        <h2>Hello, <span class="text-primary"> ${name} </span>user</h2>
-                        <h1>This is test spring application ${test_text}</h1>
-                        <p>It is time when you visited this site <a href="#" target="_blank">What next?</a>.</p>
+
+
+                        <button type="button" class="btn btn-primary btn-lg">Film : ${message.text}</button>
+
                     </div>
                 </div>
             </div>
-            <!-- slide-->
-            <div class="sl-slide bg-2" data-orientation="vertical" data-slice1-rotation="10" data-slice1-scale="1.5"
-                 data-slice2-rotation="-15" data-slice2-scale="1.5">
-                <div class="sl-slide-inner" style="background-image: url(/web/img/hero-bg02.jpg);">
-                    <div class="container">
-                        <h1>Nooooooo</h1>
-                        <p>no? </p>
-                    </div>
-                </div>
-            </div>
-            <!-- slide-->
-            <div class="sl-slide bg-3" data-orientation="horizontal" data-slice1-rotation="3" data-slice1-scale="2"
-                 data-slice2-rotation="3" data-slice2-scale="1">
-                <div class="sl-slide-inner" style="background-image: url(/web/img/hero-bg03.jpg);">
-                    <div class="container">
-                        <h2>It's <span class="text-primary">all about</span></h2>
-                        <h1>foooood</h1>
-                        <p>Foood at home, food cooking, food delivery. Ops sorry, not cooking))</p>
-                    </div>
-                </div>
-            </div>
+            </#list>
+
         </div>
         <!-- End sl-slider-->
         <!-- slider pagination-->

@@ -29,7 +29,8 @@
 
   width: 310px;
   height: 500px;
-  margin: 40px;
+  margin: auto;
+  margin-top: 20px;
 
   perspective: 1000px;
 }
@@ -448,4 +449,32 @@ button:focus+.design-container {
   left: 50%;
   margin-left: -37px;
   top: 3.5rem;
+}
+
+.carousel-item {
+  height: 80vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#bgkarusel {
+background-image: url('https://source.unsplash.com/1920x1080/?movies');
+
+}
+#bganti {
+-webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
+}
+#bganti2 {
+-webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
 }

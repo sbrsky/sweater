@@ -12,14 +12,16 @@
     </tr>
     </thead>
     <tbody>
+    <#if messages??>
     <#list messages as message>
     <tr>
-        <th scope="row"><a href="/user-messages/${message.author.id}?message=${message.id}" class="badge badge-info">Edit</a></th>
+        <th scope="row"><a href="" class="badge badge-success">Match</a><a href="" class="badge badge-danger">NO</a></th>
         <td>${message.text}</td>
         <td>${message.tag}</td>
         <td>${message.authorName}</td>
     </tr>
     </#list>
+</#if>
 
     </tbody>
 </table>

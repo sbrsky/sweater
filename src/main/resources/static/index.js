@@ -20,11 +20,11 @@ function getMovies(searchText){
 <img src="${movie.Poster}">
 <h5>${movie.Title}</h5>
 <div>
-    <form method="post" id="filmf">
+    <form method="post" id=${index}>
         <input type="hidden" value="${movie.Title}" name="text"/>
         <input type="hidden" value="таг" name="tag"/>
         <input type="hidden" value="${movie.Poster}" name="image"/>
-        <button type="submit">Save message</button>
+        <button class="btn btn-outline-info" type="submit">Save message</button>
     </form>
 </div>
 </div>

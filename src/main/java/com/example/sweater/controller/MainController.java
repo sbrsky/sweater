@@ -3,6 +3,7 @@ package com.example.sweater.controller;
 import com.example.sweater.domain.Message;
 import com.example.sweater.domain.User;
 import com.example.sweater.repos.MessageRepo;
+import com.example.sweater.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,15 +22,15 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class MainController {
     @Autowired
     private MessageRepo messageRepo;
+
+    @Autowired
+    private UserRepo userRepo;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -42,19 +43,52 @@ public class MainController {
         Iterable<Message> messages;
         messages = messageRepo.findAll();
         model.put("test_text", s);
-        return "greeting";
+        model.put("messages",messages);
+
+        return "redirect:/main";
     }
 
     @GetMapping("/main")
-    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+    public String main(
+            @RequestParam(required = false, defaultValue = "") String filter,
+            Model model,
+            @AuthenticationPrincipal User currentUser
+    ) {
         Iterable<Message> messages = messageRepo.findAll();
+        Set<Message>  match = new HashSet<>();
+
+        User user1 = userRepo.findByUsername(currentUser.getUsername());
+        Set<User> subsS = user1.getSubscriptions();
+
+        Set<User> friends = new HashSet<>();
+
+        for (User s : subsS) {
+            if (s.getSubscriptions().contains(user1)){
+                friends.add(s);
+            }
+        }
+
+
+
+       /* for (Message message : messages) {
+            if (message.getAuthor().equals(currentUser)){
+                match.add(message);
+            }
+        }*/
+        // После зала - добавляем функционал - 1) высвечиваем  список друзей в выпадающем списке.
+        // 2) Отобрадаем сообщения от этого списка друзей.
 
         if (filter != null && !filter.isEmpty()) {
             messages = messageRepo.findByTag(filter);
         } else {
             messages = messageRepo.findAll();
+
+
+
         }
 
+
+        model.addAttribute("friends",friends);
         model.addAttribute("messages", messages);
         model.addAttribute("filter", filter);
         return "main";
@@ -132,6 +166,11 @@ public class MainController {
             @RequestParam(required = false) Message message
     ) {
         Set<Message> messages = user.getMessages();
+
+        model.addAttribute("userChannel", user);
+        model.addAttribute("subscriptionsCount", user.getSubscriptions().size());
+        model.addAttribute("subscribersCount", user.getSubscribers().size());
+        model.addAttribute("isSubscriber", user.getSubscribers().contains(currentUser));
 
         model.addAttribute("messages", messages);
         model.addAttribute("message", message);

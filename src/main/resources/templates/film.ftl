@@ -29,8 +29,14 @@
 
 <div>
 
-        <input type="hidden" name="_csrf" value="${_csrf.token}" form="filmf"/>
-
-    </form>
+        <input type="hidden" name="_csrf" value="${_csrf.token}" form="0"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="1"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="2"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="4"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="5"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="6"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="7"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="8"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="9"/>
 </div>
 </@c.page>

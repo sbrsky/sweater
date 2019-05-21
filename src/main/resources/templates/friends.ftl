@@ -1,25 +1,105 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
+<div>
+
+    <div class="p-3 mb-2 bg-secondary text-white"> Partner: ${partner!''} </div>
+</div>
+<div>
+
+    <div class="p-3 mb-2 bg-secondary text-white"> Друзья </div>
+</div>
+
 
 <table class="table table-striped">
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Tag</th>
-        <th scope="col">Created by</th>
+        <th scope="col">Username</th>
+        <th scope="col">Id</th>
+        <th scope="col">Details</th>
     </tr>
     </thead>
     <tbody>
-    <#list friends as friend>
+    <#list friends as user>
     <tr>
-        <th scope="row"><a href="#" class="badge badge-info">Friends</a></th>
-        <td>friend name</td>
+        <th scope="row">
+            <form action="/user/friends" class="form-inline" method="get">
+                <input class="form-control" name="id" placeholder="Set active partner" type="hidden"
+                       value="${user.username?ifExists}">
+                <button class="badge badge-success" type="submit">Set partner</button>
+            </form>
 
+
+        </th>
+        <td>${user.username}</td>
+        <td>${user.id}</td>
+        <td></td>
+        <td></td>
     </tr>
-    <#else>
-    No friends
+    </#list>
+
+    </tbody>
+</table>
+
+
+<div>
+
+    <div class="p-3 mb-2 bg-secondary text-white"> Запросы на дружбу</div>
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Id</th>
+        <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <#list usersr as user>
+    <tr>
+        <th scope="row">
+            <a class="badge badge-warning" href="/user-messages/${user.id}">Хочет дружить</a>
+
+        </th>
+        <td>${user.username}</td>
+        <td>${user.id}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    </#list>
+
+    </tbody>
+</table>
+
+<div>
+
+    <div class="p-3 mb-2 bg-secondary text-white">.Это то, на кого мы подписаны</div>
+</div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Id</th>
+        <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <#list users as user>
+    <tr>
+        <th scope="row">
+            <a class="badge badge-info" href="/user-messages/${user.id}">Requested</a>
+
+        </th>
+        <td>${user.username}</td>
+        <td>${user.id}</td>
+        <td></td>
+        <td></td>
+    </tr>
     </#list>
 
     </tbody>
@@ -39,7 +119,7 @@
 
 <div>
 
-        <input type="hidden" name="_csrf" value="${_csrf.token}" form="filmf"/>
+    <input type="hidden" name="_csrf" value="${_csrf.token}" form="filmf"/>
 
     </form>
 </div>
