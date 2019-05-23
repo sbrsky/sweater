@@ -21,7 +21,7 @@ public class Message {
 
     private String filename;
 
-//    private String fileurl;
+
 
     public Message() {
     }
@@ -76,11 +76,5 @@ public class Message {
         this.filename = filename;
     }
 
-/*    public String getFileurl() {
-        return fileurl;
-    }
 
-    public void setFileurl(String fileurl) {
-        this.fileurl = fileurl;
-    }*/
 }

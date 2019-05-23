@@ -13,29 +13,36 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <#if user??>
-                <li class="nav-item">
-                    <a class="nav-link" href="/main">Library </a>
-                </li>
+                    <li class="nav-item">
 
+                    </li>
+                </#if>
+                <!-- My Contacts -->
 
+                <!-- My Contacts End -->
+            </ul>
 
-            <li class="nav-item">
-                <a class="nav-link" href="/user/profile">Profile </a>
-            </li>
-        </#if>
-        <!-- My Contacts -->
-
-        <!-- My Contacts End -->
-        </ul>
-
-    <#if user??>
-    <span>
-    <button type="button" class="btn btn-outline-success"><#if user.friend1??> Your Partner : ${user.friend1} </#if></button>---
+            <#if user??>
+                <span>
+        <#if user.friend1??>
+    <button type="button" class="btn btn-outline-success"> Your Partner : ${user.friend1} </button>
+        <#else>
+                    <a href="/user/friends" class="btn btn-outline-info">Add partner +&#43;</a>
+                    </#if>---
     </span>
-        <div class="navbar-text mr-3"> Logged as ${name} <#if isAdmin><span class="badge badge-warning">admin</span></#if></div>
-        <img src="${user.profilePicture}" width="9%" height="9%" class="img-fluid" alt="Responsive image">
-</#if>
-    <span>
+                <div class="navbar-text mr-3"> <a href="/user/profile"> ${name}</a> <#if isAdmin><span
+                            class="badge badge-warning">admin</span></#if></div>
+                <#if user.profilePicture??>
+
+                <img src="${user.profilePicture!''}" width="9%" height="9%" class="img-fluid"
+                                          alt="profile image" >
+
+                <#else>
+                    <img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fgray-user-management%2F512%2Frounded-256.png&f=1"
+                         width="9%" height="9%" class="img-fluid" alt="Responsive image">
+                </#if>
+            </#if>
+            <span>
         <@l.logout />
     </span>
 </nav>

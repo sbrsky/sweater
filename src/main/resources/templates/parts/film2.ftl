@@ -1,6 +1,4 @@
-<#import "parts/common.ftl" as c>
 
-<@c.page>
 
 <div class="container">
     <div class="border border-info mt-5">
@@ -41,4 +39,3 @@
     <input type="hidden" name="_csrf" value="${_csrf.token}" form="8"/>
     <input type="hidden" name="_csrf" value="${_csrf.token}" form="9"/>
 </div>
-</@c.page>

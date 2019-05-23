@@ -10,7 +10,7 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
 
         <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/1920x1080/?films,cinema')">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption ">
                 <div class="form-row">
 
                         <div class="form-group col-m-2">
@@ -26,7 +26,7 @@
                             </form>
                         </div>
                     </div>
-                <h2 class="display-4"><a href="/film" class="btn btn-info" style="font-size: 1.6em;" >Your Film Collection</a></h2>
+                <h2 class="display-4"><a href="#add" class="btn btn-info" style="font-size: 1.6em;" >Add</a></h2>
                 <p class="lead">Swipe to Right or Left to view whole collection</p>
             </div>
         </div>
@@ -98,5 +98,7 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
+<div id="add">
+<#include "film2.ftl">
+</div>
 

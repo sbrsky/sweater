@@ -1,7 +1,7 @@
 <#include "security.ftl">
 <div class="container-fluid">
     <div class="row d-flex d-md-block flex-nowrap wrapper">
-        <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width " id="sidebar">
+        <div class="col-md-3 float-left col-8 pl-0 pr-0 collapse width " id="sidebar">
             <div class="list-group border-0 card text-center text-md-left">
                 <#if isAdmin>
                     <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse"
@@ -32,25 +32,25 @@
                     </div>
                 </#if>
 
-                <a href="/user/profile" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-heart"></i> <span class="d-none d-md-inline">Profile</span></a>
-                <a href="/user/friends" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-list"></i> <span class="d-none d-md-inline">Friends</span></a>
                 <a href="/film" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-clock-o"></i> <span class="d-none d-md-inline">Add movie</span></a>
+                            class="fa fa-heart"></i> <span class="d-md-block">Add Film</span></a>
+                <a href="/user/friends" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
+                            class="fa fa-list"></i> <span class="d-md-block">Friends</span></a>
+                <a href="/film" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
+                            class="fa fa-clock-o"></i> <span class="d-md-block">Add movie</span></a>
                 <a href="/user-messages/${currentUserId}" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-th"></i> <span class="d-none d-md-inline">My messages</span></a>
+                            class="fa fa-th"></i> <span class="d-md-block">My messages</span></a>
                 <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-gear"></i> <span class="d-none d-md-inline">Link</span></a>
+                            class="fa fa-gear"></i> <span class="d-md-block">Link</span></a>
                 <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-calendar"></i> <span class="d-none d-md-inline">Link</span></a>
+                            class="fa fa-calendar"></i> <span class="d-md-block">Link</span></a>
                 <a href="partner_msg" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-envelope"></i> <span class="d-none d-md-inline">Partner's msg</span></a>
+                            class="fa fa-envelope"></i> <span class="d-md-block">Partner's msg</span></a>
                 <div class="dropdown-divider"></div>
                 <a href="/user/user_list_all" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-bar-chart-o"></i> <span class="d-none d-md-inline">All users</span></a>
-                <a href="/user" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-                            class="fa fa-star"></i> <span class="d-none d-md-inline">User List</span></a>
+                            class="fa fa-bar-chart-o"></i> <span class="d-md-block">All users</span></a>
+                <a href="/user/profile" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
+                            class="fa fa-star"></i> <span class="d-none d-md-inline">Profile</span></a>
             </div>
         </div>
         <main class="col-md-9 col px-5 pl-md-2 pt-2 main mx-auto">

@@ -35,6 +35,6 @@ public class FilmController {
         Message message = new Message(text,tag,user);
         message.setFilename(image);
         messageRepo.save(message);
-        return "film";
+        return "redirect:/main";
     }
 }

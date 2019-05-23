@@ -17,7 +17,9 @@ create table usr (
       email varchar(255),
        password varchar(255) not null,
         username varchar(255) not null,
-         primary key (id)
+         profile_picture varchar(255),
+          friend1 varchar(255),
+           primary key (id)
          );
 alter table if exists message
         add constraint message_user_fk

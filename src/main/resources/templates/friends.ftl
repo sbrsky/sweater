@@ -2,12 +2,16 @@
 
 <@c.page>
 <div>
+    <#if partner??>
+        <button type="button" class="btn btn-outline-success"> Your Partner : ${partner!''}  </button>
+    <#else>
+        <a href="/user/friends" class="btn btn-outline-info">Choose your partner +&#43; from friends</a>
+    </#if>
 
-    <div class="p-3 mb-2 bg-secondary text-white"> Partner: ${partner!''} </div>
 </div>
 <div>
 
-    <div class="p-3 mb-2 bg-secondary text-white"> Друзья </div>
+    <div class="p-3 mb-2 bg-info text-white"> Друзья </div>
 </div>
 
 
@@ -16,8 +20,7 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">Username</th>
-        <th scope="col">Id</th>
-        <th scope="col">Details</th>
+
     </tr>
     </thead>
     <tbody>
@@ -27,7 +30,7 @@
             <form action="/user/friends" class="form-inline" method="get">
                 <input class="form-control" name="id" placeholder="Set active partner" type="hidden"
                        value="${user.username?ifExists}">
-                <button class="badge badge-success" type="submit">Set partner</button>
+                <a class="badge badge-success" type="submit">Set partner</a>
             </form>
 
 
@@ -45,7 +48,7 @@
 
 <div>
 
-    <div class="p-3 mb-2 bg-secondary text-white"> Запросы на дружбу</div>
+    <div class="p-3 mb-2 bg-info text-white"> Запросы на дружбу</div>
 </div>
 
 
@@ -77,7 +80,7 @@
 
 <div>
 
-    <div class="p-3 mb-2 bg-secondary text-white">.Это то, на кого мы подписаны</div>
+    <div class="p-3 mb-2 bg-info text-white">.Это то, на кого мы подписаны</div>
 </div>
 <table class="table table-striped">
     <thead>

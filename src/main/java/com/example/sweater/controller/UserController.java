@@ -169,7 +169,8 @@ public class UserController {
             @PathVariable User user,
             @AuthenticationPrincipal User currentUser
     ) {
-        userService.subscribe(currentUser,user);
+        User user1 = userRepo.findByUsername(currentUser.getUsername());
+        userService.subscribe(user1,user);
         return "redirect:/user/profile";
     }
 
